@@ -1,0 +1,108 @@
+.button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 20px;
+    height: 36px;
+    outline: none;
+    border: 3px solid var(--light-gray-color);
+    color: var(--brand-color);
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    background-color: var(--white-color);
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.button:hover {
+    border-color: var(--dark-gray-color);
+    opacity: 1;
+}
+
+.button .icon-loading {
+    display: none;
+}
+
+.button.loading {
+    text-indent: -9999px;
+}
+
+.button.loading .icon-loading {
+    display: block;
+}
+
+.button-secondary {
+    background-color: var(--green-color);
+    color: var(--white-color);
+    border: 3px solid var(--light-green-color);
+}
+.button-secondary:hover {
+    background-color: var(--white-color);
+    color:var(--primary-text-color);
+    border: 3px solid var(--darker-gray-color);
+    opacity: 1;
+}
+
+.button-third {
+  background-color: var(--blue-color);
+  color: var(--white-color);
+  border: 3px solid var(--light-blue-color);
+}
+.button-third:hover {
+  background-color: var(--white-color);
+  color:var(--primary-text-color);
+  border: 3px solid var(--darker-gray-color);
+  opacity: 1;
+}
+
+.button-icon {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    width: 50px;
+    height: 50px;
+    outline: none;
+    border: 0;
+    color: var(--darker-gray-color);
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.button-icon:hover .icon {
+    opacity: 0.8;
+}
+
+.button-text {
+    padding: 0;
+    outline: none;
+    border: 0;
+    color: var(--darker-gray-color);
+    line-height: inherit;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+/* Responsive */
+
+@media (max-width: 575px) {
+    
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+
+}
+
+@media (min-width: 1200px) {
+
+}

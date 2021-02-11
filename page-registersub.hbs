@@ -1,0 +1,73 @@
+{{!< default}}
+
+<div class="content-area">
+    <main class="site-main">
+        {{#post}}
+            {{> content width="wide"}}
+        {{/post}}
+
+          <form action="https://getform.io/f/b765eb67-a0ff-43b3-a1bc-73f5a2971afa" class="contact-form container small" method="POST">
+              <h3 class="form-title">Name of the organisation</h3>
+                <label>
+                    {{#if @member}}
+                      <input value="{{member.email}}" type="hidden" name="m_email">
+                      <input value="{{member.uuid}}" type="hidden" name="m_id">
+                    {{/if}}
+                    <input value="subscription" type="hidden" name="plan">
+                    <input class="text-full" type="text" name="organisation" required>
+                </label>
+
+
+              <h3 class="form-title">Address</h3>
+                <label>
+                    Street
+                    <input class="text-full" type="text" name="address_street" required>
+                </label>
+                <label>
+                    Postcode <br>
+                    <input type="text" name="address_postcode" required>
+                </label>
+                <label>
+                    City <br>
+                    <input type="text" name="address_city" required>
+                </label>
+                <label>
+                    Country <br>
+                    <input type="text" name="address_country" required>
+                </label>
+                <br>
+
+
+              <h3 class="form-title">Contact Person</h3>
+                <label>
+                    Name
+                    <input class="text-full" type="text" name="name" required>
+                </label>
+                <label>
+                    Email
+                    <input class="text-full" type="email" name="email" required>
+                </label>
+                <label>
+                    Phone <br>
+                    <input type="tel" name="tel" required>
+                </label>
+                <br>
+
+
+              <h3 class="form-title">Area of expertise</h3>
+                <label>
+                    <input type="text" maxlength="30" name="area">
+                </label>
+                <br>
+
+
+              <h3 class="form-title">Describe your organisation</h3>
+                <label>
+                    <textarea class="text-full" rows="4" placeholder="Maximum 200 character" maxlength="200" name="bio" required></textarea>
+                </label>
+
+
+              <button class="button" type="submit">Submit</button>
+          </form>
+    </main>
+</div>

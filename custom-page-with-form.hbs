@@ -1,0 +1,47 @@
+{{!< default}}
+
+<div class="content-area">
+    <main class="site-main">
+        {{#post}}
+            {{> content width="wide"}}
+        {{/post}}
+        {{#if @member.paid}}
+          <form id="pressrelease" action="https://getform.io/f/b765eb67-a0ff-43b3-a1bc-73f5a2971afa" class="contact-form container small" method="POST">
+              <label>
+                  <input value="{{member.email}}" type="hidden" name="email">
+                  <input value="{{member.uuid}}" type="hidden" name="id">
+                  Name of your organisation <br>
+                  <input type="text" name="org" required>
+              </label>
+              <label>
+                  Title
+                  <input class="text-full" type="text" name="title autocomplete="off"" required>
+              </label>
+              <label>
+                  <div id="editor-container">
+                    <div id="editor"></div>
+                  </div>
+                  <textarea name="content" style="display:none" id="hiddenArea"></textarea>
+              </label>
+              <label>
+                  Author <br>
+                  <input type="text" name="author" required>
+              </label>
+              <label>
+                  Date of publication <br>
+                  <input type="date" name="date" required>
+              </label>
+              <label>
+                  Tags <br>
+                  <input type="text" name="tags"> <br>
+                  {{#get "tags" limit="all" as |tagsnav|}}
+                    {{#foreach tagsnav}}
+                      <span style="color: var(--secondary-text-color);">#</span><span class="form-tags" >{{name}}</span>
+                    {{/foreach}}
+                  {{/get}}
+              </label>
+              <button class="button" type="submit">Submit</button>
+          </form>
+        {{/if}}
+    </main>
+</div>

@@ -1,0 +1,23 @@
+symbol {
+    fill: currentColor;
+}
+
+.icon {
+    width: 25px;
+    height: 25px;
+}
+
+.icon-loading {
+    width: 26px;
+    height: 26px;
+}
+
+.icon-small {
+  color:var(--brand-color);
+  width: 26px;
+  height: 26px;
+}
+
+.icon-inline {
+  display: inline;
+}

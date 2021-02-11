@@ -1,0 +1,141 @@
+.cover {
+    /* margin-top: 1rem; */
+}
+
+.cover-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 500px;
+    text-align: center;
+}
+
+/* .cover-content img {
+    border: solid 3px var(--darker-gray-color);
+} */
+
+.cover-icon {
+    position: relative;
+    display: inline;
+}
+
+.cover-icon-image {
+    width: 50px;
+    display: inline;
+    /* padding-top: 80px; */
+}
+
+.cover-icon-image.white {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+
+.cover-description {
+    font-size: 2.5rem;
+    color: var(--dark-green-color);
+    font-style: italic;
+    text-align: center;
+    /* background-color: var(--green-color); */
+    padding-left: 4px;
+    text-
+    padding-right: 4px;
+    font-weight: 700;
+}
+
+.cover-cta {
+    display: inline-block;
+    margin-bottom: 2rem;
+    width:100%;
+    text-align: center;
+}
+
+.cover-cta .button {
+    margin: 0.5rem 0.5rem;
+    width: 100%
+}
+
+.cover-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.cover-nav .menu-item {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    color: var(--secondary-text-color);
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+.cover-nav .menu-item + .menu-item::before {
+    content: "▪";
+    padding: 0 0.7rem;
+    font-family: serif;
+    line-height: 1;
+}
+
+.cover-nav .menu-item:hover {
+    opacity: 1;
+}
+
+/* Responsive */
+
+@media (max-width: 575px) {
+  .cover-description {
+    font-size: 1.3rem;
+    display: none;
+  }
+  .cover-icon-image {
+      width: 50px;
+      display: inline;
+      /* padding-top:30px; */
+      margin-left: 0;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+  .cover-description {
+    font-size: 1.5rem;
+  }
+  .cover-icon-image {
+      width: 50px;
+      display: inline;
+      /* padding-top:50px; */
+      margin-left: 0;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .cover-description {
+    font-size: 1.5rem;
+  }
+  .cover-icon-image {
+      width: 50px;
+      display: inline;
+      /* padding-top:70px; */
+      margin-left: 0;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .cover-description {
+      font-size: 1.5rem;
+    }
+    .cover-icon-image {
+        width: 50px;
+        display: inline;
+        /* padding-top:70px; */
+        margin-left: 0;
+    }
+}
+
+@media (min-width: 1200px) {
+
+}

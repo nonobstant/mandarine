@@ -1,0 +1,55 @@
+{{!< default}}
+
+<div class="content-area">
+    <main class="site-main">
+        <div class="single kg-width-narrow">
+            <header class="single-header">
+                <h1 class="single-title">Your account</h1>
+            </header>
+            {{#unless @member}}
+                <script>window.location = '{{@site.url}}/account/#/portal/signin';</script>
+                <div class="account-profile">
+                    <h2 class="account-name">You need to be connected to access <strong>Account</strong> Page !</h2>
+                    <button style="margin-top:2rem" class="button account-button menu-item members-login gh-portal-close" data-portal="signin">Login / Register </button>
+                </div>
+            {{else}}
+                <div class="account" style="margin-top:2rem;">
+                    <div class="account-profile">
+                        {{#if @member.name}}
+                            <h2 class="account-name">{{@member.name}}</h2>
+                        {{/if}}
+                        <div class="account-email">{{@member.email}}</div>
+                        <div class="account-button-list">
+                            <button class="button account-button members-signout"
+                                data-members-signout>Sign
+                                out</button>
+                        </div>
+                        {{#if @member.paid}}
+                          <h2 class="account-name">
+                            Thanks you so much for supporting us ! 💜
+                          </h2>
+                          {{#foreach @member.subscriptions}}
+                          <div class="account-button-list">
+                              <div class="button account-button">
+                                  {{cancel_link}}
+                              </div>
+                          </div>
+                          <p>By canceling your subscription you will no longuer be charged at renewval period</p>
+                          <p>Expiration date [ <strong>{{date current_period_end format="DD MMM YYYY"}}</strong> ]</p>
+                          {{/foreach}}
+                        {{else}}
+                        <h2 class="account-name">
+                          Help us with prismFlower Server cost and receive rewards ! 💜
+                        </h2>
+                        <div class="account-button-list">
+                            <button class="button account-button members-signout" data-members-plan="Monthly">
+                                Support Us
+                            </button>
+                        </div>
+                        {{/if}}
+                    </div>
+                </div>
+            {{/unless}}
+        </div>
+    </main>
+</div>

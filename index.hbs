@@ -1,0 +1,14 @@
+{{!< default}}
+
+<div class="content-area">
+    <main class="site-main">
+        <div class="container pr-feed">
+          {{#get "posts" filter="tags:-[prism]" page=pagination.page include="authors" limit=@config.posts_per_page as |homeposts|}}
+            {{#foreach homeposts visibility="public"}}
+                {{> "loop"}}
+            {{/foreach}}
+          {{/get}}
+        </div>
+        {{pagination}}
+    </main>
+</div>

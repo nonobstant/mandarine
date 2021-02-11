@@ -1,0 +1,14 @@
+{{#get "posts" include="authors" limit="3" filter="tags:[{{post.tags}}]+id:-{{post.id}}" as |related|}}
+    {{#if related}}
+        <section class="related-wrapper">
+            <div class="container medium">
+                <h3 class="related-title">Related creation ...</h3>
+                <div class="pr-feed">
+                    {{#foreach posts visibility="all"}}
+                        {{> "loop"}}
+                    {{/foreach}}
+                </div>
+            </div>
+        </section>
+    {{/if}}
+{{/get}}
