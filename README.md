@@ -1,8 +1,8 @@
-# Aube
+# mandarine / MAME
 
 Theme for ghost based on the Dawn Theme
 
-**Demo: https://climate.brussels**
+**Demo: https://prismflower.xyz**
 
 &nbsp;
 
@@ -13,7 +13,7 @@ Theme for ghost based on the Dawn Theme
 
 # Search
 
-1. Navigate to the `Integrations` and click on `Add custom integration`. 
+1. Navigate to the `Integrations` and click on `Add custom integration`.
 2. Copy the content API key; this will be used to fetch posts from your site.
 3. Insert the generated key in `Code injection > Site Header` field.
 
