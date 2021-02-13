@@ -1,0 +1,17 @@
+#chat {
+  margin: auto
+}
+.ultra-small {
+  width: 500px;
+
+}
+
+.user {
+  /* text-align: center; */
+}
+.user-label {
+  color: var(--white-color);
+  padding: 2px 5px;
+  font-size: 1.2rem;
+  background-color:var(--green-color);
+}

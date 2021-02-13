@@ -1,0 +1,72 @@
+{{!< default}}
+
+<div id="chat" class="content-area">
+    <main class="site-main">
+        {{#post}}
+            {{> content width="wide"}}
+        {{/post}}
+        {{#if @member}}
+        <div class="user">
+          <div v-for="usr in room" class="container small">
+            <h3><span class="user-label">on</span> \{{usr}}</h3>
+          </div>
+        </div>
+        <div style="height:320px;max-height:320px" class="container small">
+          <span style="display:block" v-for="msg in chat">\{{msg}}</span>
+        </div>
+        <div class="container small ultra-small">
+          <!-- <h3>Message</h3> -->
+          <input maxlength="80" v-model="message" v-on:keyup.enter="sendMessage(message)" type="text">
+          <button style="margin-left:15px" class="button" v-on:click="sendMessage(message)">Send</button>
+        </div>
+        <script>
+
+
+
+        var app = new Vue({
+          el: '#chat',
+          data() {
+            return {
+              //socketio
+              socket: {},
+              user: "{{member.name}}",
+              room: [],
+              message: "",
+              chat: [],
+            }
+          },
+          created() {
+            this.socket = io("http://localhost:3000");
+          },
+          mounted() {
+            this.socket.on("log", data => {
+              //connection confirm
+              console.log(data);
+
+              this.socket.emit("getusr", this.user);
+
+              this.socket.on("getroom", data => {
+                this.room = data;
+                console.log("- An user joined the room !");
+              });
+
+              this.socket.on("getchat", data => {
+                this.chat = data;
+                console.log("- poke !")
+              });
+
+            });
+          },
+          methods : {
+            sendMessage(msg) {
+              // alert("action verified")
+              msg = this.user + ": " + msg;
+              this.message = "";
+              this.socket.emit("getmsg", msg);
+            },
+          }
+        })
+        </script>
+        {{/if}}
+    </main>
+</div>

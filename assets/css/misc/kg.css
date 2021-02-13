@@ -59,6 +59,7 @@
 }
 
 .kg-bookmark-description {
+  width:20ch;
     overflow: hidden;
     margin-top: 5px;
     color: var(--secondary-text-color);
@@ -79,13 +80,14 @@
 
 .kg-bookmark-icon {
     margin-right: 5px;
-    width: 20px;
-    height: 20px;
+    width: 40px;
+    height: 40px;
 }
 
 .kg-bookmark-author,
 .kg-bookmark-publisher {
     color: var(--darker-gray-color);
+    font-size:1.5rem;
 }
 
 .kg-bookmark-author + .kg-bookmark-publisher::before {
@@ -96,8 +98,8 @@
 
 .kg-bookmark-thumbnail {
     position: relative;
-    flex-shrink: 0;
-    margin-left: 20px;
+    flex-grow: 1;
+    margin-left: 5px;
     width: 220px;
 }
 
