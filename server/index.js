@@ -2,7 +2,7 @@ const Express = require ("express")();
 const Http = require("http").Server(Express);
 const Socketio = require("socket.io")(Http, {
   cors: {
-    origin: "https://mandarine-server.herokuapp.com/",
+    origin: "https://prismflower.xyz",
     methods: ["GET", "POST"],
     allowedHeaders: ["content-type"],
     credentials: true
