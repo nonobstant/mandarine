@@ -36,7 +36,7 @@
             }
           },
           created() {
-            this.socket = io("http://localhost:3000");
+            this.socket = io("https://mandarine-server.herokuapp.com/");
           },
           mounted() {
             this.socket.on("log", data => {
