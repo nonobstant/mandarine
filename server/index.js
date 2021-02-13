@@ -36,6 +36,14 @@ Socketio.on("connection", socket => {
     chat = [...new Set(chat)]
     Socketio.emit("getchat", chat)
   });
+
+  socket.on("delusr", data => {
+    console.log(data + "disconnected")
+    var i = room.indexOf(data);
+    room.splice(i, 1);
+    room = [...new Set(room)]
+    Socketio.emit("getroom", room)
+  });
 });
 
 Http.listen(process.env.PORT || 3000, ()=> {
