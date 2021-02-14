@@ -55,7 +55,7 @@
                 // console.log("- poke !")
               });
 
-              this.socket.on('disconnected', () => {
+              this.socket.on('disconnect', () => {
                   this.socket.emit('delusr', this.user);
               });
 
