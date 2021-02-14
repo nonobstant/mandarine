@@ -5,7 +5,10 @@
   width: 500px;
 
 }
-
+.chat-container {
+  height:320px;
+  max-height:320px;
+}
 .user {
   /* text-align: center; */
 }
@@ -17,4 +20,29 @@
   padding: 2px 5px;
   font-size: 1.2rem;
   background-color:var(--green-color);
+}
+@media (max-width: 575px) {
+  .chat-container {
+    height:auto;
+    max-height:auto;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+  .chat-container {
+    height:auto;
+    max-height:auto;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+
+}
+
+@media (min-width: 1200px) {
+
 }
