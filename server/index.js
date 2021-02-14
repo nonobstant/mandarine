@@ -40,7 +40,7 @@ Socketio.on("connection", socket => {
 
   socket.on('disconnect', () => {
       room = [];
-      socket.emit("log", welcomeMessage);
+      Socketio.emit("log", welcomeMessage);
       Socketio.emit("getroom", room);
   });
 
