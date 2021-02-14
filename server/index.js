@@ -25,7 +25,7 @@ Socketio.on("connection", socket => {
     }
     room = [...new Set(room)]
     Socketio.emit("getroom", room)
-    Socketio.emit("getchat", room)
+    Socketio.emit("getchat", chat)
   });
 
   socket.on("getmsg", data => {
