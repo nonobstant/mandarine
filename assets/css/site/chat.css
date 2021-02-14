@@ -10,6 +10,9 @@
   /* text-align: center; */
 }
 .user-label {
+  width:10px;
+  height:10px;
+  display:inline-block;
   color: var(--white-color);
   padding: 2px 5px;
   font-size: 1.2rem;
