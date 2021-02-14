@@ -38,13 +38,19 @@ Socketio.on("connection", socket => {
     Socketio.emit("getchat", chat)
   });
 
-  socket.on("delusr", data => {
-    console.log(data + " as disconnected")
-    var i = room.indexOf(data);
-    room.splice(i, 1);
-    room = [...new Set(room)]
-    Socketio.emit("getroom", room)
+  socket.on('disconnect', () => {
+      room = [];
+      socket.emit("log", welcomeMessage);
+      Socketio.emit("getroom", room);
   });
+
+  // socket.on("delusr", data => {
+  //   console.log(data + " as disconnected")
+  //   var i = room.indexOf(data);
+  //   room.splice(i, 1);
+  //   room = [...new Set(room)]
+  //   Socketio.emit("getroom", room)
+  // });
 });
 
 Http.listen(process.env.PORT || 3000, ()=> {
