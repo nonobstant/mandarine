@@ -52,10 +52,10 @@
 
               this.socket.on("getchat", data => {
                 this.chat = data;
-                console.log("- poke !")
+                // console.log("- poke !")
               });
 
-              socket.on('disconnected', function() {
+              socket.on('disconnected', () => {
                   socket.emit('delusr', this.user);
               });
 
