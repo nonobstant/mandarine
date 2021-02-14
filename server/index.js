@@ -39,7 +39,7 @@ Socketio.on("connection", socket => {
   });
 
   socket.on("delusr", data => {
-    console.log(data + "disconnected")
+    console.log(data + " as disconnected")
     var i = room.indexOf(data);
     room.splice(i, 1);
     room = [...new Set(room)]

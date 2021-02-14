@@ -56,7 +56,7 @@
               });
 
               this.socket.on('disconnected', () => {
-                  socket.emit('delusr', this.user);
+                  this.socket.emit('delusr', this.user);
               });
 
             });
