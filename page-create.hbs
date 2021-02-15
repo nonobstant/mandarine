@@ -7,19 +7,19 @@
         {{/post}}
         {{#if @member}}
         <div id="create">
-        <img style="max-height:200px; margin:auto;" v-bind:src="img_url">
-        <form id="pressrelease" @submit="startCreate" class="contact-form container small">
+        <img style="max-height:200px; margin:auto;" v-bind:src="creation.img_url">
+        <form v-if="access" id="pressrelease" @submit="startCreate" class="contact-form container small">
             <label>
                 <input value="{{member.email}}" type="hidden" name="email">
                 <!-- <input value="{{member.uuid}}" type="hidden" name="id"> -->
             </label>
             <label>
                 <h3>Image URL</h3>
-                <input v-model="img_url" class="text-full" type="text" name="url" autocomplete="off" required>
+                <input v-model="creation.img_url" class="text-full" type="text" name="url" autocomplete="off" required>
             </label>
             <label>
                 <h3>Title</h3>
-                <input class="text-full" style="" maxlength="30" type="text" name="title" autocomplete="off" required>
+                <input v-model="creation.title" class="text-full" style="" maxlength="30" type="text" name="title" autocomplete="off" required>
             </label>
             <label>
                 <div id="editor-container">
@@ -37,20 +37,48 @@
         var app = new Vue({
           el: '#create',
           data: {
-            img_url: 'https://prismflower.xyz/content/images/2020/12/256_trans.png',
-            email: '{{member.email}}',
-            uuid: '{{member.uuid}}',
-            title : "",
-            content : "",
-            img_url : ""
+            usr: {
+              email: '{{member.email}}',
+              usrname: '{{member.name}}',
+            },
+
+            creation: {
+              title : "",
+              html : "",
+              img_url: 'https://prismflower.xyz/content/images/2020/12/256_trans.png',
+              author: {
+                name: '{{member.name}}',
+                email: '{{member.email}}',
+              },
+            },
+
+            access : false,
+          },
+          created() {
+            this.socket = io("https://mandarine-server.herokuapp.com"); //http://localhost:3000
+          },
+          mounted() {
+
+            this.socket.on("log", data => {
+              //connection confirm
+              console.log(data);
+
+              this.socket.emit("verifusr", this.usr);
+
+              this.socket.on("gettoken", data => {
+                this.access = data;
+              });
+            });
+
           },
           methods : {
             startCreate() {
               // Send JSON to server via socket.io
               if (title = "") {
-
+                // error
               } else {
-                console.log(this.email+" "+this.uuid)
+                console.log("Creation sent")
+                this.socket.emit("postcreation", this.creation);
                 //handle quil editor if html enabled
 
               }

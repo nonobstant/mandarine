@@ -12,7 +12,11 @@
           </div>
         </div>
         <div class="container small chat-container">
-          <span style="display:block" v-for="msg in chat">\{{msg}}</span>
+          <div v-for="msg in chat" class="">
+            <div v-html="msg" class="">
+              
+            </div>
+          </div>
         </div>
         <div class="container small ultra-small">
           <!-- <h3>Message</h3> -->
@@ -20,9 +24,6 @@
           <button style="margin-left:15px" class="button" v-on:click="sendMessage(message)">Send</button>
         </div>
         <script>
-
-
-
         var app = new Vue({
           el: '#chat',
           data() {
@@ -36,9 +37,10 @@
             }
           },
           created() {
-            this.socket = io("https://mandarine-server.herokuapp.com/");
+            this.socket = io("http://localhost:3000"); //https://mandarine-server.herokuapp.com/
           },
           mounted() {
+
             this.socket.on("log", data => {
               //connection confirm
               console.log(data);

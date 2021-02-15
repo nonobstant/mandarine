@@ -21,6 +21,11 @@
   font-size: 1.2rem;
   background-color:var(--green-color);
 }
+.admin-text {
+  color: var(--brand-color);
+  font-weight: bold; 
+}
+
 @media (max-width: 575px) {
   .chat-container {
     height:auto;
