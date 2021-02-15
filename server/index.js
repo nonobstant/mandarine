@@ -36,11 +36,11 @@ var post_sample = {
 };
 var access_token = false;
 var access_list = [
-  "Nonobstant",
+  "nonobstant",
   "sorenanoni",
   "Chintoxique",
   "Wagsamoht",
-  "Yuui",
+  "Yuuui",
 ]
 
 Socketio.on("connection", socket => {
