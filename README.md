@@ -1,4 +1,4 @@
-# mandarine / MAME
+# mandarine 
 
 ## prism System
 **prism** are the XP, you gain **prism** by
