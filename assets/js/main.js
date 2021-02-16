@@ -17,21 +17,10 @@ $(function () {
     video();
     gallery();
     table();
-    toc();
     modal();
     search();
     burger();
     theme();
-});
-
-$(window).on('scroll', function () {
-    'use strict';
-    if (body.hasClass('post-template')) {
-        if (timeout) {
-            window.cancelAnimationFrame(timeout);
-        }
-        timeout = window.requestAnimationFrame(sticky);
-    }
 });
 
 $(window).on('load', function () {
@@ -46,31 +35,15 @@ $(window).on('load', function () {
     }
 });
 
-function sticky() {
-    'use strict';
-    st = jQuery(window).scrollTop();
+$(window).scroll(function() {
 
-    if (titleOffset > 0 && contentOffset > 0) {
-        if (st > lastSt) {
-            if (st > titleOffset) {
-                body.addClass('sticky-visible');
-            }
-        } else {
-            if (st <= titleOffset) {
-                body.removeClass('sticky-visible');
-            }
-        }
-    }
+    // calculate the percentage the user has scrolled down the page
+    var scrollPercent = 100 * $(window).scrollTop() / ($(document).height() - $(window).height());
 
-    progress.css(
-        'transform',
-        'translate3d(' +
-            (-100 + Math.min((st * 100) / contentOffset, 100)) +
-            '%,0,0)'
-    );
+    $('.dolum').css('width', 0 +"%"  );
+    // $('.dolum').css('width', scrollPercent +"%"  );
 
-    lastSt = st;
-}
+});
 
 function subMenu() {
     'use strict';
@@ -222,53 +195,6 @@ function table() {
                             $(column).attr('data-label', labels[index]);
                         });
                 });
-        });
-    }
-}
-
-function toc() {
-    'use strict';
-    if (body.hasClass('post-template')) {
-        var output = '';
-        var toggle = $('.sticky-toc-button');
-
-        $('.single-content')
-            .find('> h2, > h3')
-            .each(function (index, value) {
-                var linkClass =
-                    $(this).prop('tagName') == 'H3'
-                        ? 'sticky-toc-link sticky-toc-link-indented'
-                        : 'sticky-toc-link';
-                output +=
-                    '<a class="' +
-                    linkClass +
-                    '" href="#' +
-                    $(value).attr('id') +
-                    '">' +
-                    $(value).text() +
-                    '</a>';
-            });
-
-        if (output == '') {
-            toggle.remove();
-        }
-
-        $('.sticky-toc').html(output);
-
-        toggle.on('click', function () {
-            body.toggleClass('toc-opened');
-        });
-
-        $('.sticky-toc-link').on('click', function (e) {
-            e.preventDefault();
-            var link = $(this).attr('href');
-
-            $('html, body').animate(
-                {
-                    scrollTop: $(link).offset().top - 82,
-                },
-                500
-            );
         });
     }
 }

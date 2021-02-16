@@ -7,9 +7,9 @@
                         {{date published_at}}
                     </time>
                 </span>
-                <span class="single-meta-item single-meta-length">
+                <!-- <span class="single-meta-item single-meta-length">
                     {{reading_time}}
-                </span>
+                </span> -->
                 {{#primary_tag}}
                     <span class="single-meta-item single-meta-tag">
                         <a class="post-tag post-tag-{{slug}}" href="{{url}}">
@@ -40,19 +40,6 @@
         {{#if @labs.members}}
             {{#if access}}
                 {{content}}
-                <!-- {{#is "post"}}
-                    {{#unless @member}}
-                        <section class="single-cta">
-                            <h2 class="single-cta-title">Publish your Press Realease</h2>
-                            <button class="button single-cta-button" onclick="window.location.href='/pricing/'">See pricing plans</button>
-                            <br>
-                            <br>
-                            <h2 class="single-cta-title">Subscribe to our daily E-news for free</h2>
-                            <button class="button single-cta-button" data-portal="signup">Subscribe now</button>
-                            <br>
-                        </section>
-                    {{/unless}}
-                {{/is}} -->
             {{else}}
                 <p>
                     You don't have access to this page.
@@ -63,21 +50,6 @@
                     {{else}}
                         <h2 class="single-cta-title">This post is for subscribers only</h2>
                     {{/has}}
-
-                    <!-- {{#if @member}}
-                        {{#unless @member.paid}}
-                            <button class="button single-cta-button" onclick="window.location.href='/pricing/'">See pricing plans</button>
-                        {{/unless}}
-                    {{else}}
-                        <h2 class="single-cta-title">Do you want to share your Press Realease ?</h2>
-                        <button class="button single-cta-button" onclick="window.location.href='/pricing/'">See pricing plans</button>
-                        <br>
-                        <br>
-                        <h2 class="single-cta-title">Interested in our daily E-news</h2>
-                        <button class="button single-cta-button" data-portal="signup">Subscribe now</button>
-                        <br>
-                        <button class="button-text single-cta-footer" data-portal="signin">Already have an account? Sign in</button>
-                    {{/if}} -->
                 </section>
             {{/if}}
         {{else}}
@@ -116,26 +88,6 @@
                         {{/foreach}}
                     </div>
                 </div>
-                <!-- <div class="single-footer-bottom">
-                    <div class="share">
-                        <a class="share-link share-link-facebook"
-                            href="https://www.facebook.com/sharer.php?u={{url absolute="true"}}"
-                            target="_blank" rel="noopener noreferrer">
-                            <svg class="icon icon-facebook">
-                                <use xlink:href="#facebook"></use>
-                            </svg>
-                            Share
-                        </a>
-                        <a class="share-link share-link-twitter"
-                            href="https://twitter.com/intent/tweet?url={{url absolute="true"}}&text={{encode title}}"
-                            target="_blank" rel="noopener noreferrer">
-                            <svg class="icon icon-twitter">
-                                <use xlink:href="#twitter"></use>
-                            </svg>
-                            Tweet
-                        </a>
-                    </div>
-                </div> -->
             </div>
             <div class="single-footer-right">
                 {{#next_post}}

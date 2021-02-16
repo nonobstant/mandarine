@@ -3,7 +3,7 @@
 <div class="content-area">
     <main class="site-main">
         <div class="container pr-feed">
-          {{#get "posts" page=pagination.page include="authors" limit=@config.posts_per_page as |homeposts|}}
+          {{#get "posts" filter="tags:[gallery]" page=pagination.page include="authors" limit=@config.posts_per_page as |homeposts|}}
             {{#foreach homeposts visibility="public"}}
                 {{> "loop"}}
             {{/foreach}}

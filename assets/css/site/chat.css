@@ -2,7 +2,7 @@
   margin: auto
 }
 .ultra-small {
-  width: 500px;
+  max-width: 500px;
 
 }
 .chat-container {
@@ -23,7 +23,7 @@
 }
 .admin-text {
   color: var(--brand-color);
-  font-weight: bold; 
+  font-weight: bold;
 }
 
 @media (max-width: 575px) {

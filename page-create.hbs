@@ -11,7 +11,6 @@
         <form v-if="access" id="pressrelease" @submit="startCreate" class="contact-form container small">
             <label>
                 <input value="{{member.email}}" type="hidden" name="email">
-                <!-- <input value="{{member.uuid}}" type="hidden" name="id"> -->
             </label>
             <label>
                 <h3>Image URL</h3>
@@ -29,6 +28,7 @@
             </label>
             <button v-on:click="startCreate()" class="button" type="submit">Submit</button>
         </form>
+        <p v-else style="text-align:center">Access Denied</p>
         </div>
         <script>
 
@@ -86,6 +86,12 @@
           }
         })
         </script>
+        {{else}}
+            <script>window.location = '{{@site.url}}/account/#/portal/signin';</script>
+            <div class="account-profile">
+                <h2 class="account-name">You need to be connected to access <strong>Create</strong> page !</h2>
+                <button style="margin-top:2rem" class="button account-button menu-item members-login gh-portal-close" data-portal="signin">Login / Register </button>
+            </div>
         {{/if}}
     </main>
 </div>

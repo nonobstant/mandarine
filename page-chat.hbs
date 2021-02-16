@@ -69,6 +69,12 @@
           }
         })
         </script>
+        {{else}}
+            <script>window.location = '{{@site.url}}/account/#/portal/signin';</script>
+            <div class="account-profile">
+                <h2 class="account-name">You need to be connected to access <strong>Chat</strong> page !</h2>
+                <button style="margin-top:2rem" class="button account-button menu-item members-login gh-portal-close" data-portal="signin">Login / Register </button>
+            </div>
         {{/if}}
     </main>
 </div>

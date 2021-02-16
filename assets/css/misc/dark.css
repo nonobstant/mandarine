@@ -83,7 +83,7 @@
     }
 
     html:not(.theme-light) .sticky {
-        background-color: rgba(0, 0, 0, 0.6);
+        background-color: var(--white-color);
     }
 
     html:not(.theme-light) .form-button,
