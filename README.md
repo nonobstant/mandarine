@@ -1,4 +1,4 @@
-![mame](https://github.com/nonobstant/mandarine/blob/master/assets/images/Mandarine64.png)
+![mame](https://github.com/nonobstant/mandarine/blob/master/assets/images/Mandarine128.png)
 
 # mandarine 
 
