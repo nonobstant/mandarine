@@ -1,4 +1,4 @@
-![mame](assets/image/Mand.png)
+![mame](/assets/image/Mand.png)
 
 # mandarine 
 
