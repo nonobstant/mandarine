@@ -74,7 +74,7 @@ Flower are PixelArt Rank, you can choose one flower to be on your profile page, 
 
 ---
 
-## Released
+## Development
 
 **Theme** Release
 * Home
@@ -109,14 +109,27 @@ Production
 yarn zip
 ```
 
-**Server**
+**Server** Release
 * SocketIO
   * Chat
     * Sanityzed HTML
   * Create
     * Verify creator
 * Ghost admin
-  * App connexion ( auth in future ! )
+  * App connexion
+
+**Server** Progress
+* SockectIO + Ghost admin
+  * Remove / Edit Creation
+  * Edit profile
+* Ghost admin
+  * Auth connection
+* LowDB
+  * Create the Database
+  * Users
+    * prism, Flower, GiveAwayTicket
+  * Interaction system
+
 
 Install / Development
 
