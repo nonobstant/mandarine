@@ -63,36 +63,65 @@ Flower are PixelArt Rank, you can choose one flower to be on your profile page, 
 * Description
 * Website
 
-:: **Modification on Account page**
-:: **Take affect on Profile page**
+: : **Modification on Account page**
+: : **Take affect on Profile page**
 
 ### Creations Modification
 * Modify ( title/img/content )
 * Remove
 
-:: **Modification on Creation page**
+: : **Modification on Creation page**
 
 ---
 
 ## Released
 
-**Theme**
+**Theme** Release
 * Home
 * Creation
 * Profile
-* Account
 * Login / Register
 * Tag
 * Draw-Box
-* Chat
-* Create ( in progress )
 * Color Theme
 * Dark / Light mode
+
+**Theme** Progress
+* Create
+* Account
+* GiveAway
+* Chat
+* Private Chat
+* Create Environment variable for socketIO client-side
+
+Install / Development
+
+```bash
+# Install
+yarn
+
+# Run build & watch for changes
+$ yarn dev
+```
+Production
+
+```bash
+yarn zip
+```
 
 **Server**
 * SocketIO
   * Chat
     * Sanityzed HTML
   * Create
+    * Verified creator
 * Ghost admin
   * App connexion ( auth in future ! )
+
+```bash
+# Install
+npm install
+
+# Run the server
+$ npm start
+```
