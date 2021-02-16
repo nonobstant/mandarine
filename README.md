@@ -114,9 +114,11 @@ yarn zip
   * Chat
     * Sanityzed HTML
   * Create
-    * Verified creator
+    * Verify creator
 * Ghost admin
   * App connexion ( auth in future ! )
+
+Install / Development
 
 ```bash
 # Install
