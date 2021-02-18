@@ -6,10 +6,10 @@
             {{> content width="wide"}}
         {{/post}}
         {{#if @member}}
-        <div class="user">
-          <div v-for="usr in room" class="container small">
-            <h3><span class="user-label"></span> \{{usr}}</h3>
-          </div>
+        <div class="user container small">
+          <p style="display:inline;margin:0 5px" v-for="usr in room">
+            <span class="user-label"></span> \{{usr}}
+          </p>
         </div>
         <div class="container small chat-container">
           <div v-for="msg in chat" class="">
@@ -18,9 +18,9 @@
             </div>
           </div>
         </div>
-        <div class="container small ultra-small">
+        <div class="container small chat-msg">
           <!-- <h3>Message</h3> -->
-          <input maxlength="80" v-model="message" v-on:keyup.enter="sendMessage(message)" type="text">
+          <input class="chat-input" maxlength="80" v-model="message" v-on:keyup.enter="sendMessage(message)" type="text">
           <button style="margin-left:15px" class="button" v-on:click="sendMessage(message)">Send</button>
         </div>
         <script>
@@ -37,7 +37,7 @@
             }
           },
           created() {
-            this.socket = io("https://mandarine-server.herokuapp.com"); //http://localhost:3000
+            this.socket = io("http://localhost:3000"); //https://mandarine-server.herokuapp.com
           },
           mounted() {
 

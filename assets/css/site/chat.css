@@ -1,9 +1,11 @@
 #chat {
   margin: auto
 }
-.ultra-small {
-  max-width: 500px;
-
+.chat-msg {
+  display: flex;
+}
+.chat-input {
+  flex-grow: 1;
 }
 .chat-container {
   height:320px;

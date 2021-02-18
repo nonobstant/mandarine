@@ -2,7 +2,7 @@ const Express = require ("express")();
 const Http = require("http").Server(Express);
 const Socketio = require("socket.io")(Http, {
   cors: {
-    origin: "https://prismflower.xyz", //http://localhost:2368
+    origin: "http://localhost:2368", //https://prismflower.xyz
     methods: ["GET", "POST"],
     allowedHeaders: ["content-type"],
     credentials: true
@@ -13,9 +13,9 @@ const GhostAdminAPI = require('@tryghost/admin-api');
 
 // Configure the client
 const api = new GhostAdminAPI({
-    url: 'https://prismflower.xyz', //http://localhost:2368
+    url: 'http://localhost:2368', //https://prismflower.xyz
     // Admin API key goes here
-    key: process.env.SECRET_KEY,
+    key: '6022b6c5f75a5e4148bfe8a8:abae3db74fd674aaac2c30dbdf9b76fbdedd74c058f3e3a8cc83bfa114e26b54', //process.env.SECRET_KEY
     version: 'v3'
 });
 
