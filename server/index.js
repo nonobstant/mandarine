@@ -39,8 +39,9 @@ var access_list = [
   "nonobstant",
   "sorenanoni",
   "Chintoxique",
-  "Wagsamoht",
+  "Thomas Wagner",
   "Yuuui",
+  "Mya"
 ]
 
 Socketio.on("connection", socket => {
