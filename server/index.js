@@ -2,7 +2,7 @@ const Express = require ("express")();
 const Http = require("http").Server(Express);
 const Socketio = require("socket.io")(Http, {
   cors: {
-    origin: "http://localhost:2368", //https://prismflower.xyz
+    origin: "https://prismflower.xyz", //http://localhost:2368
     methods: ["GET", "POST"],
     allowedHeaders: ["content-type"],
     credentials: true
@@ -13,9 +13,9 @@ const GhostAdminAPI = require('@tryghost/admin-api');
 
 // Configure the client
 const api = new GhostAdminAPI({
-    url: 'http://localhost:2368', //https://prismflower.xyz
+    url: 'https://prismflower.xyz', //http://localhost:2368
     // Admin API key goes here
-    key: '6022b6c5f75a5e4148bfe8a8:abae3db74fd674aaac2c30dbdf9b76fbdedd74c058f3e3a8cc83bfa114e26b54', //process.env.SECRET_KEY
+    key: 'process.env.SECRET_KEY', //6022b6c5f75a5e4148bfe8a8:abae3db74fd674aaac2c30dbdf9b76fbdedd74c058f3e3a8cc83bfa114e26b54
     version: 'v3'
 });
 
@@ -34,7 +34,7 @@ var post_sample = {
   authors:[],
   tags: [],
 };
-var access_token = false;
+// var access_token = false;
 var access_list = [
   "nonobstant",
   "sorenanoni",
@@ -78,14 +78,15 @@ Socketio.on("connection", socket => {
 
   // **CREATE**
   socket.on("verifusr", data => {
+    let unique_access_token = false;
     console.log(data.usrname + " | Creation mode !");
     access_list.forEach(id => {
       if (data.usrname == id) {
-        access_token = true
+        unique_access_token = true
       };
     });
 
-    console.log(data.usrname + " | Access : "+access_token);
+    console.log(data.usrname + " | Access : "+unique_access_token);
     //send token
     socket.emit("gettoken", access_token);
 
