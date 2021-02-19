@@ -88,7 +88,7 @@ Socketio.on("connection", socket => {
 
     console.log(data.usrname + " | Access : "+unique_access_token);
     //send token
-    socket.emit("gettoken", access_token);
+    socket.emit("gettoken", unique_access_token);
 
     socket.on("postcreation", data => {
       let post = post_sample;
