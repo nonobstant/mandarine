@@ -15,7 +15,7 @@ const GhostAdminAPI = require('@tryghost/admin-api');
 const api = new GhostAdminAPI({
     url: 'https://prismflower.xyz', //http://localhost:2368
     // Admin API key goes here
-    key: 'process.env.SECRET_KEY', //6022b6c5f75a5e4148bfe8a8:abae3db74fd674aaac2c30dbdf9b76fbdedd74c058f3e3a8cc83bfa114e26b54
+    key: process.env.SECRET_KEY, //6022b6c5f75a5e4148bfe8a8:abae3db74fd674aaac2c30dbdf9b76fbdedd74c058f3e3a8cc83bfa114e26b54
     version: 'v3'
 });
 
