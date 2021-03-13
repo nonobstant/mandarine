@@ -295,3 +295,7 @@ table:not(.highlight) tfoot td {
         white-space: nowrap;
     }
 }
+
+.error {
+  color: var(--red-color)
+}

@@ -5,6 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{meta_title}}</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <script src="https://cdn.socket.io/3.1.1/socket.io.min.js"></script>
     <link rel="stylesheet" href="{{asset "built/screen.css"}}">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,400;0,700;0,800;1,400;1,700&display=swap">
@@ -50,7 +52,7 @@
               <svg style="display:inline;width:25px;height:28px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 642.26 738.68">
                 <path d="M400,58.94h0L127.15,331.79h545.7L570.53,229.47,229.47,570.53,127.15,468.21h545.7L400,741.06" transform="translate(-78.87 -30.66)" style="fill:none;stroke:var(--brand-color);stroke-linecap:square;stroke-width:55px"/>
               </svg>
-              0
+              <span id="prismWallet"></span>
             </div>
           </div>
         </div>

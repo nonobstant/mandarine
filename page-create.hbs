@@ -13,6 +13,7 @@
                 <input value="{{member.email}}" type="hidden" name="email">
             </label>
             <label>
+                <h3 class="error">\{{error}}</h3>
                 <h3>Image URL</h3>
                 <input v-model="creation.img_url" class="text-full" type="text" name="url" autocomplete="off" required>
             </label>
@@ -38,7 +39,7 @@
           el: '#create',
           data: {
             usr: {
-              email: '{{member.email}}',
+              email: '{{member.name}}@prismflower.xyz',
               usrname: '{{member.name}}',
             },
 
@@ -48,9 +49,11 @@
               img_url: 'https://prismflower.xyz/content/images/2020/12/256_trans.png',
               author: {
                 name: '{{member.name}}',
-                email: '{{member.email}}',
+                email: '{{member.name}}@prismflower.xyz',
               },
             },
+            error: "",
+
 
             access : false,
           },
@@ -74,11 +77,15 @@
           methods : {
             startCreate() {
               // Send JSON to server via socket.io
-              if (title = "") {
+              if (this.creation.title == "") {
                 // error
+                this.error = "Please enter a title for your creation !"
               } else {
                 console.log("Creation sent")
                 this.socket.emit("postcreation", this.creation);
+
+                // window.location.href = "{{@site.url}}";
+                window.location.href = '{{@site.url}}';
                 //handle quil editor if html enabled
 
               }

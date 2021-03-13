@@ -1,6 +1,6 @@
 {{!< default}}
 
-<div class="content-area">
+<div id="home" class="content-area">
     <main class="site-main">
         <div class="container pr-feed">
           {{#get "posts" filter="tags:[gallery]" page=pagination.page include="authors" limit=@config.posts_per_page as |homeposts|}}
@@ -11,4 +11,41 @@
         </div>
         {{pagination}}
     </main>
+    {{#if @member}}
+    <script>
+    var app = new Vue({
+      el: '#home',
+      data() {
+        return {
+          //socketio
+          socket: {},
+          user: "{{member.name}}",
+        }
+      },
+      created() {
+        this.socket = io("https://mandarine-server.herokuapp.com"); //http://localhost:3000
+      },
+      mounted() {
+        this.socket.on("log", data => {
+          //connection confirm
+          console.log(data);
+
+          this.socket.emit("getprism", this.user);
+
+          this.socket.on("setprism", data => {
+            // window.localstorage.prism = data;
+            localStorage.setItem('prism', JSON.stringify(data.prism));
+            localStorage.setItem('xPrism', JSON.stringify(data.xPrism));
+            // window.location.reload(true);
+          });
+
+        });
+        // window.location.reload(true);
+      },
+      methods : {
+
+      }
+    })
+    </script>
+    {{/if}}
 </div>

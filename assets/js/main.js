@@ -35,12 +35,16 @@ $(window).on('load', function () {
     }
 });
 
+// prismBar
+var myPrism = JSON.parse(localStorage.getItem('prism'));
+var myxPrism = JSON.parse(localStorage.getItem('xPrism'));
+$('.dolum').css('width', myxPrism +"%"  );
+$( "#prismWallet" ).append( myPrism );
+
 $(window).scroll(function() {
 
     // calculate the percentage the user has scrolled down the page
     var scrollPercent = 100 * $(window).scrollTop() / ($(document).height() - $(window).height());
-
-    $('.dolum').css('width', 0 +"%"  );
     // $('.dolum').css('width', scrollPercent +"%"  );
 
 });

@@ -13,16 +13,21 @@
                     <button style="margin-top:2rem" class="button account-button menu-item members-login gh-portal-close" data-portal="signin">Login / Register </button>
                 </div>
             {{else}}
-                <div class="account" style="margin-top:2rem;">
+                <div id="account" class="account" style="margin-top:2rem;">
                     <div class="account-profile">
                         {{#if @member.name}}
                             <h2 class="account-name">{{@member.name}}</h2>
                         {{/if}}
                         <div class="account-email">{{@member.email}}</div>
+                        <div v-if="userInfo.rank" class="account-email"> <strong>Rank</strong> [ \{{userInfo.rank}} ] </div>
                         <div class="account-button-list">
                             <button class="button account-button members-signout"
-                                data-members-signout>Sign
-                                out</button>
+                                data-members-signout>
+                                Sign out
+                            </button>
+                            <button v-if="!creator" v-on:click="becomeCreator()" class="button account-button">
+                              Become a creator (comming soon)
+                            </button>
                         </div>
                         {{#if @member.paid}}
                           <h2 class="account-name">
@@ -49,6 +54,49 @@
                         {{/if}}
                     </div>
                 </div>
+                <script>
+                var app = new Vue({
+                  el: '#account',
+                  data() {
+                    return {
+                      //socketio
+                      socket: {},
+                      user: "{{member.name}}",
+                      creator: true,
+                      userInfo: {},
+                    }
+                  },
+                  created() {
+                    this.socket = io("https://mandarine-server.herokuapp.com"); //http://localhost:3000
+                  },
+                  mounted() {
+
+                    this.socket.on("log", data => {
+                      //connection confirm
+                      console.log(data);
+
+
+                      this.socket.emit("syncaccount", this.user);
+
+                      this.socket.on("userinfo", data => {
+                        this.userInfo = data
+                        console.log(data)
+                      });
+
+                      this.socket.on("checkcreator", data => {
+                        this.creator = data
+                      });
+
+                    });
+                  },
+                  methods : {
+                    becomeCreator() {
+                      // this.socket.emit("becreator", this.user);
+                      // window.location.reload(true);
+                    },
+                  }
+                })
+                </script>
             {{/unless}}
         </div>
     </main>
