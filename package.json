@@ -1,7 +1,7 @@
 {
     "name": "mandarine",
     "description": "YOKAI-LAB",
-    "version": "2.1.5",
+    "version": "2.2.0",
     "engines": {
         "ghost": ">=3.0.0",
         "ghost-api": "v3"
