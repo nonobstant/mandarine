@@ -2,14 +2,39 @@
 
 <div id="home" class="content-area">
     <main class="site-main">
+        <div class="container">
+          <!-- <h2>Games</h2> -->
+          <div class="pr-feed">
+            {{#get "posts" filter="tags:[games]" include="authors"  as |games|}}
+              {{#foreach games visibility="public"}}
+                  <article class=" relative {{post_class}}">
+                    <div class="feed-games">
+                      <img class="lazyload u-object-fit" data-srcset="{{> srcset}}"
+                          data-sizes="auto" src="{{img_url feature_image size="l"}}"
+                          srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                          alt="">
+                      <a class="u-permalink" href="{{url}}" aria-label="{{title}}"></a>
+                    </div>
+                    <h2 class="feed-title-games">{{title}}</h2>
+                    <p class="feed-title-games">{{excerpt}}</p>
+                  </article>
+
+              {{/foreach}}
+            {{/get}}
+          </div>
+          <h2>| Lux.Minima</h2>
+          FREE FORMAT POST
+          <h2>| Atelier.404</h2>
+          FREE FORMAT POST
+          <h2>Gallery  </h2>
+        </div>
         <div class="container pr-feed">
-          {{#get "posts" filter="tags:[gallery]" page=pagination.page include="authors" limit=@config.posts_per_page as |homeposts|}}
+          {{#get "posts" filter="tags:[gallery]" include="authors"  as |homeposts|}}
             {{#foreach homeposts visibility="public"}}
                 {{> "loop"}}
             {{/foreach}}
           {{/get}}
         </div>
-        {{pagination}}
     </main>
     {{#if @member}}
     <script>
@@ -23,7 +48,7 @@
         }
       },
       created() {
-        this.socket = io("https://mandarine-server.herokuapp.com"); //http://localhost:3000
+        this.socket = io("https://hail-heathered-angle.glitch.me"); //http://localhost:3000 https://mandarine-server.herokuapp.com
       },
       mounted() {
         this.socket.on("log", data => {

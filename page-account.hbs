@@ -18,15 +18,15 @@
                         {{#if @member.name}}
                             <h2 class="account-name">{{@member.name}}</h2>
                         {{/if}}
+                        <div v-if="userInfo.rank" class="account-email">[ <strong>\{{userInfo.rank}}</strong> ]</div>
                         <div class="account-email">{{@member.email}}</div>
-                        <div v-if="userInfo.rank" class="account-email"> <strong>Rank</strong> [ \{{userInfo.rank}} ] </div>
                         <div class="account-button-list">
                             <button class="button account-button members-signout"
                                 data-members-signout>
                                 Sign out
                             </button>
                             <button v-if="!creator" v-on:click="becomeCreator()" class="button account-button">
-                              Become a creator (comming soon)
+                              Activate prismSystem
                             </button>
                         </div>
                         {{#if @member.paid}}
@@ -67,7 +67,7 @@
                     }
                   },
                   created() {
-                    this.socket = io("https://mandarine-server.herokuapp.com"); //http://localhost:3000
+                    this.socket = io("https://hail-heathered-angle.glitch.me"); //http://localhost:3000 https://mandarine-server.herokuapp.com
                   },
                   mounted() {
 
@@ -91,8 +91,8 @@
                   },
                   methods : {
                     becomeCreator() {
-                      // this.socket.emit("becreator", this.user);
-                      // window.location.reload(true);
+                      this.socket.emit("becreator", this.user);
+                      window.location.reload(true);
                     },
                   }
                 })

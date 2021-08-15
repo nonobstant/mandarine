@@ -7,7 +7,15 @@
 .pr-feed {
   display: grid;
   grid-gap: 1rem;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  margin-bottom: 25px
+}
+
+.pr-feed-related {
+  display: grid;
+  grid-gap: 1rem;
   grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-bottom: 25px
 }
 
 .post-feed {
@@ -34,14 +42,29 @@
     text-align: left;
     margin: auto;
     border: solid 3px var(--light-brand-color);
-    height: 350px;
+    height: 215px;
     width: 100%;
+}
+
+.feed-games {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  text-align: left;
+  /* margin: auto; */
+  width:233px;
+  height:233px
+
 }
 
 .feed:hover {
   transform: translate(5px,-5px);
   cursor: crosshair;
   box-shadow: -5px 5px var(--brand-color);
+}
+.feed-games:hover {
+  transform: translate(5px,-5px);
+  cursor: crosshair;
 }
 
 .feed:hover .feed-title {
@@ -87,6 +110,15 @@
     opacity: 0.8;
     /* text-overflow: ellipsis; */
     /* white-space: nowrap; */
+}
+.feed-title-games {
+  width: 100%;
+  flex-grow: 1;
+  overflow: hidden;
+  padding: 0 0 0 15px;
+  font-size: 1.6rem;
+  font-weight: 800;
+  opacity: 0.8;
 }
 
 .feed-right {
@@ -143,7 +175,7 @@
       max-width: 100%;
   }
   .pr-feed {
-    grid-template-columns: repeat(1, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -160,7 +192,7 @@
       max-width: 100%;
   }
   .pr-feed {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
@@ -177,7 +209,7 @@
       max-width: 100%;
   }
   .pr-feed {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
 
